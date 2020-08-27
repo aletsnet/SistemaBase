@@ -79,7 +79,7 @@ class CreateBaseTables extends Migration
             $table->collation = 'utf8_general_ci';
         });
         
-        Schema::create('bs_catlogos_detalles', function (Blueprint $table) {
+        Schema::create('bs_catalogos_detalles', function (Blueprint $table) {
             $table->increments('id_catlogos_detalles');
             $table->unsignedInteger('id_catalogos');
             $table->string('opcion',250);
@@ -106,6 +106,10 @@ class CreateBaseTables extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('bs_catalogos_detalles');
+        Schema::dropIfExists('bs_catalogos');
+        Schema::dropIfExists('bs_servicios');
+        Schema::dropIfExists('bs_roles');
         Schema::dropIfExists('bs_modulos');
     }
 }

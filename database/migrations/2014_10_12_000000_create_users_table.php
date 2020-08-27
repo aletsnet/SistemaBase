@@ -15,21 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('bs_usuarios', function (Blueprint $table) {
             $table->increments('id_usuarios');
-            $table->integer('id_roles');
+            $table->integer('id_roles')->nullable();
             $table->string('nombre');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('user');
             $table->string('password');
-            $table->string('foto');
-            $table->string('cargo');
-            $table->string('area');
-            $table->string('telefono');
-            $table->string('direccion');
-            $table->string('nombre');
-            $table->string('token');
+            $table->string('foto')->nullable();
+            $table->string('cargo')->nullable();
+            $table->string('area')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('token')->nullable();
             $table->string('fecha_alta');
-            $table->string('fecha_actualizado');
+            $table->string('fecha_actualizado')->nullable();
             $table->boolean('activo')->default(true);
             $table->boolean('borrado')->default(false);
             

@@ -20,18 +20,77 @@ class BasicSeeder extends Seeder
             'orden' => 99,
             'activo' => true
         ]);
-        Schema::create('bs_modulos', function (Blueprint $table) {
-            $table->increments('id_modulos');
-            $table->string('nombre',250);
-            $table->text('descripcion')->nullable();
-            $table->string('icon',150)->nullable();
-            $table->string('css_class',250)->nullable();
-            $table->integer('orden')->nullable();
-            $table->boolean('activo')->default(true);
-            
-            $table->engine = 'InnoDB';
-            $table->charset = 'utf8';
-            $table->collation = 'utf8_general_ci';
-        });
+
+        DB::table('bs_servicios')->insert([
+            'id_modulos' => 1,
+            'nombre' => 'Permisos',
+            'descripcion' => 'Crear usuarios y asignar permisos',
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'page_form' => 'SystemPermisos',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
+        DB::table('bs_servicios')->insert([
+            'id_modulos' => 1,
+            'nombre' => 'Catalogos',
+            'descripcion' => 'administrar los catalogos',
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'page_form' => 'SystemCatalogos',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
+        DB::table('bs_servicios')->insert([
+            'id_modulos' => 1,
+            'nombre' => 'Roles',
+            'descripcion' => 'administrar los roles',
+            'icon' => 'fa fa-bookmark',
+            'css_class' => '',
+            'page_form' => 'SystemRoles',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
+        DB::table('bs_roles')->insert([
+            'nombre' => 'Administrador',
+            'descripcion' => 'Usuario Administrador',
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
+        DB::table('bs_catalogos')->insert([
+            'nombre' => 'Estatus',
+            'descripcion' => 'Define el estatus del registro',
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
+        DB::table('bs_catalogos_detalles')->insert([
+            'id_catalogos' => 1,
+            'opcion' => 'Activo',
+            'valor' => 1,
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'orden' => 1,
+            'activo' => true
+        ]);
+        
+        DB::table('bs_catalogos_detalles')->insert([
+            'id_catalogos' => 1,
+            'opcion' => 'Inactivo',
+            'valor' => 2,
+            'icon' => 'fa fa-user',
+            'css_class' => '',
+            'orden' => 1,
+            'activo' => true
+        ]);
+
     }
 }
